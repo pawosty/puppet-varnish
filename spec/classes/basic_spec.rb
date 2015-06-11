@@ -135,21 +135,4 @@ describe 'varnish' do
     end
   end
 
-  context 'Varnish 4 on Ubuntu 14' do
-    describe 'Varnish 4 on Ubuntu 14.04' do
-      let(:params) {{
-          :varnish_version => '4.0'
-        }}
-        let (:facts) {{
-          :osfamily        => 'Debian',
-          :lsbdistid       => 'Debian',
-          :lsbdistcodename => 'trusty',
-        }}
-
-      it { should compile.with_all_deps }
-      it { should contain_apt__source('varnish-cache').with(:repos => 'varnish-4.0', 
-        :location => 'http://repo.varnish-cache.org/debian') }
-    end
-  end
-
 end
