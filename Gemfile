@@ -7,6 +7,7 @@ group :test do
   gem 'rspec-system-puppet'
   gem 'puppetlabs_spec_helper'
   gem 'puppet-syntax', '~> 1.2.0'
+  gem 'facter', '~> 2.0.0'
   gem 'puppet', ENV['PUPPET_VERSION'] || '~> 3.7.0'
 end
 
