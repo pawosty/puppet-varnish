@@ -62,28 +62,7 @@ describe 'varnish' do
       it { should contain_class('varnish::service').that_subscribes_to('varnish::config') }
 
     end
-
-    describe "varnish class with minimal parameters on Ubuntu 14.04" do
-      let(:params) {{
-        :secret => 'foobar'
-      }}
-      let (:facts) {{
-        :osfamily        => 'Debian',
-        # apt looks for lsbdistid
-        :lsbdistid       => 'Debian',
-        :lsbdistcodename => 'trusty',
-      }}
-
-      it { should compile.with_all_deps }
-      it { should contain_class('varnish::secret') }
-      it { should contain_class('varnish::install').that_comes_before('varnish::config') }
-      it { should contain_class('varnish::config') }
-      it { should contain_class('varnish::service').that_subscribes_to('varnish::config') }
-
-    end
-  end
-
-
+    
   context 'unsupported operating system' do
     describe 'varnish class without any parameters on Solaris/Nexenta' do
       let(:facts) {{
